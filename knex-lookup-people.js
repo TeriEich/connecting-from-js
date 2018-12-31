@@ -16,7 +16,7 @@ const knex = require('knex')({
 
 console.log('knex-lookup-people.js is attempting to run...');
 
-var query = knex.select(['first_name', 'last_name', 'birthdate']).from('famous_people');
+let query = knex.select(['first_name', 'last_name', 'birthdate']).from('famous_people');
 
 const userInput = process.argv[2];
 if(userInput) {
@@ -26,10 +26,3 @@ query.then(function(rows) {
   console.log(rows)
   return
 });
-// })
-
-
-// `SELECT first_name, last_name, birthdate
-//     FROM famous_people
-//     WHERE first_name = $1::text
-//     OR last_name = $1::text;`, userInput
